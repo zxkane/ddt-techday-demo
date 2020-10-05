@@ -17,7 +17,6 @@ cdk.out/
 .cdk.staging/
 cdk.out
 cdk.context.json
-image
 yarn-error.log
 coverage
 .DS_Store

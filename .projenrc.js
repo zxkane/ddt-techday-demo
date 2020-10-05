@@ -22,7 +22,7 @@ project.addScripts({
   destroy: 'cdk destroy'
 });
 
-const common_exclude = ['cdk.out', 'cdk.context.json', 'image', 'yarn-error.log','coverage','.DS_Store'];
+const common_exclude = ['cdk.out', 'cdk.context.json', 'yarn-error.log','coverage','.DS_Store'];
 project.gitignore.exclude(...common_exclude);
 project.npmignore.exclude(...common_exclude);
 

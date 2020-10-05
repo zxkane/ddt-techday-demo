@@ -43,7 +43,6 @@ cdk.out/
 .parcel-cache/
 cdk.out
 cdk.context.json
-image
 yarn-error.log
 coverage
 .DS_Store
