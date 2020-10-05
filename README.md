@@ -5,9 +5,10 @@ DDT Tech Day Demo CDK Part.
 ![](./image/asg.png)
 
 ## Need two value .
-1. ROUTE53_HOST_ZONE_ID and ROUTE53_HOST_ZONE_NAME  like `example.com` .
+1. ROUTE53_HOST_ZONE_ID and ROUTE53_HOST_ZONE_NAME  like `example.com` and `ZXXXXXXXXXX` .
 ![](./image/ddt-tech-r53-1.png)
-2. AMAZON_Certificates_Manager_ARN like `arn:aws:acm:region:account-id:certificate/xxxxxxx-oooo-oooo-oooo-xxxxxxxx` .
+2. AMAZON_Certificates_Manager_ARN like
+    `arn:aws:acm:region:account-id:certificate/xxxxxxx-oooo-oooo-oooo-xxxxxxxx` .
 ![](./image/ddt-tech-acm-1.png)
 
 ```bash
