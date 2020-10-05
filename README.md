@@ -11,6 +11,7 @@ DDT Tech Day Demo CDK Part.
     `arn:aws:acm:region:account-id:certificate/xxxxxxx-oooo-oooo-oooo-xxxxxxxx` .
 ![](./image/ddt-tech-acm-1.png)
 
+## How to use ?!
 ```bash
 To synth 
 yarn synth -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneId=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
