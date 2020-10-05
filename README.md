@@ -14,11 +14,11 @@ DDT Tech Day Demo CDK Part.
 ## How to use ?!
 ```bash
 To synth 
-yarn synth -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneId=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
+yarn synth -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneName=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
 To Diff
-yarn diff -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneId=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
+yarn diff -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneName=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
 To Deploy
-yarn deploy --require-approval never -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneId=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
+yarn deploy --require-approval never -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneName=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
 To Destroy
-yarn destroy -f -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneId=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
+yarn destroy -f -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneName=${ROUTE53_HOST_ZONE_NAME} -c acm=${AMAZON_Certificates_Manager_ARN} 
 ```
