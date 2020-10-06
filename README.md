@@ -4,7 +4,7 @@ DDT Tech Day Demo CDK Part.
 ## Create asg web server. 
 ![](./image/asg.png)
 
-## Need three value .
+## Need three value ?!
 1. ROUTE53_HOST_ZONE_ID and ROUTE53_HOST_ZONE_NAME  like `example.com` and `ZXXXXXXXXXX` .
 ![](./image/ddt-tech-r53-1.png)
 2. AMAZON_Certificates_Manager_ARN like
