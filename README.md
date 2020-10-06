@@ -13,6 +13,11 @@ DDT Tech Day Demo CDK Part.
 
 ## How to use ?!
 ```bash
+#export ENVVARS 
+export ROUTE53_HOST_ZONE_ID=ZXXXXXXXXXX
+export ROUTE53_HOST_ZONE_NAME=example.com
+export AMAZON_Certificates_Manager_ARN=arn:aws:acm:region:account-id:certificate/xxxxxxx-oooo-oooo-oooo-xxxxxxxx
+
 #To synth 
 yarn synth -c zoneId=${ROUTE53_HOST_ZONE_ID} -c zoneName=${ROUTE53_HOST_ZONE_NAME} \
 -c acm=${AMAZON_Certificates_Manager_ARN} 
