@@ -38,7 +38,7 @@
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.4.2",
     "json-schema": "^0.2.5",
-    "projen": "^0.3.90",
+    "projen": "^0.3.92",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.1.0",
     "ts-node": "^9.0.0",
@@ -54,8 +54,7 @@
     "@aws-cdk/aws-iam": "^1.66.0",
     "@aws-cdk/aws-route53-targets": "^1.66.0",
     "@aws-cdk/aws-s3": "^1.66.0",
-    "@aws-cdk/core": "^1.66.0",
-    "iam-policy-generator": "^1.66.0"
+    "@aws-cdk/core": "^1.66.0"
   },
   "bundledDependencies": [],
   "keywords": [],

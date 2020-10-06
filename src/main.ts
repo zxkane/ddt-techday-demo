@@ -6,7 +6,6 @@ import * as iam from '@aws-cdk/aws-iam';
 import * as r53 from '@aws-cdk/aws-route53';
 import * as r53tg from '@aws-cdk/aws-route53-targets';
 import { App, Construct, Stack, StackProps, CfnOutput, Duration } from '@aws-cdk/core';
-import { PolicyStatementFactory, Action } from 'iam-policy-generator';
 
 interface DemoStackProps extends StackProps {
   zoneId?: string;
@@ -25,6 +24,7 @@ yum update -y
 yum install docker -y
 systemctl start docker
 systemctl enable docker
+sleep 5
 docker run -d -p 80:80 guanyebo/demohttpd:v1
 systemctl status amazon-ssm-agent
 systemctl enable amazon-ssm-agent
@@ -47,6 +47,7 @@ exit 0`);
       machineImage: ec2.MachineImage.latestAmazonLinux(
         { generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2 }),
       desiredCapacity: 3,
+      spotPrice: '0.0104',
       blockDevices: [
         {
           deviceName: '/dev/xvda',
@@ -56,23 +57,14 @@ exit 0`);
       userData,
     });
     asg.addToRolePolicy(
-      new PolicyStatementFactory()
-        .setEffect(iam.Effect.ALLOW)
-        .addResource('*')
-        .addActions([
-          Action.SESSION_MANAGER_MESSAGE_GATEWAY_SERVICE.CREATE_CONTROL_CHANNEL,
-          Action.SESSION_MANAGER_MESSAGE_GATEWAY_SERVICE.CREATE_DATA_CHANNEL,
-          Action.SESSION_MANAGER_MESSAGE_GATEWAY_SERVICE.OPEN_CONTROL_CHANNEL,
-          Action.SESSION_MANAGER_MESSAGE_GATEWAY_SERVICE.OPEN_DATA_CHANNEL,
-          Action.SYSTEMS_MANAGER.UPDATE_INSTANCE_INFORMATION,
-          Action.MESSAGE_DELIVERY_SERVICE.ACKNOWLEDGE_MESSAGE,
-          Action.MESSAGE_DELIVERY_SERVICE.DELETE_MESSAGE,
-          Action.MESSAGE_DELIVERY_SERVICE.FAIL_MESSAGE,
-          Action.MESSAGE_DELIVERY_SERVICE.GET_ENDPOINT,
-          Action.MESSAGE_DELIVERY_SERVICE.GET_MESSAGES,
-          Action.MESSAGE_DELIVERY_SERVICE.SEND_REPLY,
-        ]).build(),
-    );
+      new iam.PolicyStatement({
+        actions: [
+          'ssmmessages:*',
+          'ssm:UpdateInstanceInformation',
+          'ec2messages:*',
+        ],
+        resources: ['*'],
+      }));
     asg.connections.allowFrom( ec2.Peer.ipv4('0.0.0.0/0'), ec2.Port.tcp(80));
     alb.addListener('myWebhttp', {
       port: 80,

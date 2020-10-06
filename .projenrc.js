@@ -15,7 +15,6 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-elasticloadbalancingv2',
     '@aws-cdk/aws-route53-targets',
     '@aws-cdk/aws-autoscaling',
-    'iam-policy-generator',
   ],
 });
 project.addScripts({

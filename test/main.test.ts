@@ -11,10 +11,10 @@ test('Snapshot', () => {
   const app = new App();
   const stack = new DemoStack(app, 'testing', {
     env: devEnv,
-    zoneName: 'exmaple.com',
-    zoneId: 'XXXXXXXXXX',
-    acm: 'arn:aws:acm:region:account-id:certificate/zzzzzzz-2222-3333-4444-3edc4rfv5t',
   } );
+  stack.node.setContext('acm', 'arn:aws:acm:region:account-id:certificate/zzzzzzz-2222-3333-4444-3edc4rfv5t' );
+  stack.node.setContext('zoneId', 'XXXXXXXXXXXXX' );
+  stack.node.setContext('zoneName', 'example.com' );
   expect(stack).not.toHaveResource('AWS::S3::Bucket');
   expect(stack).toHaveResource('AWS::EC2::Instance', {
     BlockDeviceMappings: [
